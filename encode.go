@@ -34,6 +34,9 @@ type encoder struct {
 	// doneInit holds whether the initial stream_start_event has been
 	// emitted.
 	doneInit bool
+
+	// includOmitted tells us whether we want to include fields that were marked as 'omitEmpty'
+	includeOmitted bool
 }
 
 func newEncoder() *encoder {
@@ -218,7 +221,7 @@ func (e *encoder) structv(tag string, in reflect.Value) {
 			} else {
 				value = in.FieldByIndex(info.Inline)
 			}
-			if info.OmitEmpty && isZero(value) {
+			if info.OmitEmpty && isZero(value) && !e.includeOmitted {
 				continue
 			}
 			e.marshal("", reflect.ValueOf(info.Key))
