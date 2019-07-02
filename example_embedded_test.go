@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"jesseduffield/yaml.v2"
+	"github.com/jesseduffield/yaml"
 )
 
 // An example showing how to unmarshal embedded

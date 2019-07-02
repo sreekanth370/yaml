@@ -12,7 +12,7 @@ import (
 	"os"
 
 	. "gopkg.in/check.v1"
-	"jesseduffield/yaml.v2"
+	"github.com/jesseduffield/yaml"
 )
 
 type jsonNumberT string
