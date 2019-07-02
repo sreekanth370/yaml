@@ -20,18 +20,18 @@ supported since they're a poor design and are gone in YAML 1.2.
 Installation and usage
 ----------------------
 
-The import path for the package is *gopkg.in/yaml.v2*.
+The import path for the package is *jesseduffield/yaml.v2*.
 
 To install it, run:
 
-    go get gopkg.in/yaml.v2
+    go get jesseduffield/yaml.v2
 
 API documentation
 -----------------
 
 If opened in a browser, the import path itself leads to the API documentation:
 
-  * [https://gopkg.in/yaml.v2](https://gopkg.in/yaml.v2)
+  * [https://jesseduffield/yaml.v2](https://jesseduffield/yaml.v2)
 
 API stability
 -------------
@@ -55,7 +55,7 @@ import (
         "fmt"
         "log"
 
-        "gopkg.in/yaml.v2"
+        "jesseduffield/yaml.v2"
 )
 
 var data = `
@@ -77,27 +77,27 @@ type T struct {
 
 func main() {
         t := T{}
-    
+
         err := yaml.Unmarshal([]byte(data), &t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t:\n%v\n\n", t)
-    
+
         d, err := yaml.Marshal(&t)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- t dump:\n%s\n\n", string(d))
-    
+
         m := make(map[interface{}]interface{})
-    
+
         err = yaml.Unmarshal([]byte(data), &m)
         if err != nil {
                 log.Fatalf("error: %v", err)
         }
         fmt.Printf("--- m:\n%v\n\n", m)
-    
+
         d, err = yaml.Marshal(&m)
         if err != nil {
                 log.Fatalf("error: %v", err)
